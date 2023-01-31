@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+</head>
+<style>
+  .background-image {
+    background-image: url(../BOOTSTRAP/doctor4.jpg);
+    background-size: cover;
+    height: 800px;
+  }
+
+  .outline1 {
+    outline: 15px solid rgb(187, 187, 187, 0.1);
+  }
+
+  footer {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+  }
+
+  .swal-footer {
+    background-color: rgb(245, 248, 250);
+    margin-top: 32px;
+    border-top: 1px solid #E9EEF1;
+    overflow: hidden;
+  }
+</style>
+
+<body>
+  <div class="container-fluid bg-light">
+    <div class="row justify-content-between">
+      <div class="col m-1">
+        <a class="btn btn-primary rounded-circle bg-light border-dark float-start me-2" style="opacity: 0.8;"
+          data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-list text-dark" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+          </svg>
+        </a>
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+          aria-labelledby="offcanvasExampleLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">myCare Home Page </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <div>
+              Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images,
+              lists, etc.
+            </div>
+          </div>
+        </div>
+        <h4>myCare-UT</h4>
+      </div>
+      <div class="col">
+        <div class="float-end">
+          <button type="button" class="btn btn-light rounded-circle border-dark  me-2" style="opacity: 0.8;"><svg
+              xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-aspect-ratio"
+              style="opacity: 0.8;" viewBox="0 0 16 16">
+              <path
+                d="M0 3.5A1.5 1.5 0 0 1 1.5 2h13A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5v-9zM1.5 3a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z" />
+              <path
+                d="M2 4.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H3v2.5a.5.5 0 0 1-1 0v-3zm12 7a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1 0-1H13V8.5a.5.5 0 0 1 1 0v3z" />
+            </svg>
+          </button>
+          <button type="button" class="btn btn-light rounded-circle border-dark  me-2" style="opacity: 0.8;"><svg
+              xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-chat-right-fill border-dark " style="opacity: 0.8;" viewBox="0 0 16 16">
+              <path
+                d="M14 0a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z" />
+            </svg>
+          </button>
+          <button type="button" class="btn btn-light rounded-circle border-dark  me-2" style="opacity: 0.8;"><svg
+              xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill"
+              style="opacity: 0.8;" viewBox="0 0 16 16">
+              <path
+                d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+            </svg>
+          </button>
+          <button type="button" class="btn btn-light rounded-circle border-dark  " style="opacity: 0.8;"><svg
+              xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill"
+              viewBox="0 0 16 16">
+              <path
+                d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
+            </svg>
+          </button>
+          <button type="button" class="btn btn-light  " style="opacity: 0.8;"><img src="PROFILE-PIYUSHPANDIT.jpg"
+              width="35" height="35" class="rounded-circle border border-dark m-0">
+            <div class="dropdown">
+              <button class="btn btn-light dropdown-toggle p-0 " type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <b>Admin</b> as Admin
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row justify-content-between" style="background-color: rgb(34, 94, 146); height: 40px;">
+      <div class="col-4 ">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                  fill="currentColor" class="bi bi-house-door-fill text-white mt-2" viewBox="0 0 16 16">
+                  <path
+                    d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z" />
+                </svg></i></a></li>
+            <li class="breadcrumb-item active text-white mt-2" aria-current="page" id="dashboard">DASHBOARD</li>
+          </ol>
+        </nav>
+      </div>
+      <div class="col-3 mt-1">
+        <p class="text-white mt-1 float-end"> Multi Facility Selected <i
+            class="bi bi-newspaper ms-1  border border-white rounded-circle p-1"></i></p>
+      </div>
+    </div>
+  </div>
+  <div class="background-image">
+    <div class="container float-start ms-5" style="margin-top:200px">
+      <div class="row">
+        <div class="col-7 shadow-lg p-5 bg-white outline1">
+          <h1 class="mb-5" style="color:rgb(34, 94, 146)"> Welcome to <b>Dashboard</b></h1>
+          <lead class="text-center">Finacial stability is always the priorityof mangement in ensuring that oraganization
+            remains focused in the pursuit of coporate vision. Sensible implementation of financial protocal, sustained
+            by sound revenue and receivables management, hold the key to the long-term viablity of the institution.
+            myCARE offers a full suit of RCM solution to help hospitals and practice all sizes overcoming
+            rising costs, shrinking reimbursement and ever-changing regulation and to improve every step of the revenue
+            cycle.<br>
+            <button type="button" class="btn btn-light mt-3" id="explore">Explore More...</button>
+          </lead>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="shadow-lg">
+    <div class="footer-copyright text-center p-2"><b>© 2022 Copyright:</b>
+      <img src="iqvia.png" height="25" width="150">
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script>
+    //Welcome-Information
+    swal({ title: "Welcome to IQVIA Home Page", text: "IQVIA is a global leader in protecting individual patient privacy. The company uses a wide variety of privacy-enhancing technologies and safeguards to protect individual privacy while generating and analyzing information on a scale that helps healthcare stakeholders identify disease patterns and correlate with the precise treatment path and therapy needed for better outcomes.", icon: "info", });
+
+
+    //Declaring variable
+    var dashboard = document.getElementById("dashboard");
+
+    //Adding-Event in dashboard
+    dashboard.addEventListener('click', function () {
+      window.open("file:///C:/Users/u1136557/OneDrive%20-%20IQVIA/Desktop/JAVASCRIPT/PATIENT-BILL-JAVASCRIPT.html", "_parent");
+    })
+
+    //Explore-Button
+    var explore = document.getElementById("explore");
+
+    //Adding-Event in Button
+    explore.addEventListener('click', function () {
+      window.open("https://www.iqvia.com/");
+    })
+  </script>
+</body>
+
+</html>
