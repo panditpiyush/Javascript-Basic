@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <h1>HTML DOM Events</h1>
+  <h2>The onclick Event</h2>
+  <label>FirstName</label><br>
+  <input type="text" id="fname" />
+  <br><br>
+  <label>LastName</label><br>
+  <input type="text" id="lname" /><br><br>
+  <button onclick="myFunction()">Click me</button>
+  <p id="demo"></p>
+
+  <script>
+    var person = []; // Empty Array
+
+    function myFunction() { //Funcion Started
+      var fnam = document.getElementById("fname").value; // getting value of patient firstname
+      var lnam = document.getElementById("lname").value; // getting value of patient lastname
+      person.push({ firstname: fnam, lastname: lnam }); // pushing object value to person array
+
+      let i, len, text; // declaring for loop variables
+      for (i = 0, len = person.length, text = ""; i < len; i++) { // looping started
+        text += person[i].firstname + " " + person[i].lastname + "<br>"; // bind of array values started
+      }
+      document.getElementById("demo").innerHTML = text; // printing/assigning values
+
+      document.getElementById("fname").value = ""; // empty/reset firstname
+      document.getElementById("lname").value = ""; // empty/reset lastname
+      document.getElementById("fname").focus(); // foucus on firstname
+    }
+  </script>
+
+</body>
+
+</html>

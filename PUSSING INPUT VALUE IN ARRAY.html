@@ -1,0 +1,23 @@
+<html>
+
+<head></head>
+<title>dfvd</title>
+
+<body>
+    <input id="input">
+    <button id="arr" onclick="arr()">submit</button>
+    <p id="display"></p>
+    <script>
+        array = []
+        // var display = document.getElementById("display").innerHTML = array;
+
+        function arr() {
+            var input = document.getElementById("input").value
+            array.push(input);
+            var display = document.getElementById("display").innerHTML = array;
+
+        }
+    </script>
+</body>
+
+</html>
