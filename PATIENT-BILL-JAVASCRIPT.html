@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="grt-responsive-menu.css">
+</head>
+<style>
+  input:focus {
+    outline: none;
+  }
+
+  table,
+  td,
+  th {
+    border: 1px solid #ddd;
+  }
+
+  th,
+  td {
+    text-align: center;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  li:before {
+    content: counters(item, ".") " ";
+    counter-increment: item
+  }
+
+  ol {
+    counter-reset: item;
+    padding-left: 10px;
+  }
+
+  li {
+    display: block
+  }
+
+  .overflow {
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  footer {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+  }
+
+  /* .swal-button {
+        padding: 7px 19px;
+        border-radius: 2px;
+        background-color: rgb(51, 115, 175);;
+        font-size: 12px;
+        border: none;
+        text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+        } */
+  /* .swal-footer {
+       background-color: rgb(245, 248, 250);
+       margin-top: 32px;
+       border-top: 1px solid #E9EEF1;
+       overflow: hidden;
+       } */
+</style>
+
+<body>
+  <!-- header- navbar -->
+  <div class="container-fluid">
+    <div class="row" style="background-color: rgb(51, 115, 175);">
+      <div class="col p-1">
+        <h3 class="text-white ms-1 fw-normal" id="heading">IQVIA</h3>
+      </div>
+      <div class="col">
+        <i class="bi bi-box-arrow-left text-light float-end fs-3" id="exit"></i>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Declaring row and column -->
+  <div class="row mt-2" id="container">
+    <div class="col-8">
+      <!-- Declaring conatiner for OP Bill -->
+      <div class="container-fluid shadow-lg ms-1" style="height: 880px;">
+        <div class="row">
+          <div class="col-2 p-0" style="background-color: rgb(51, 115, 175);">
+            <h4 class="text-white fw-normal ms-2">OP Walkin Bill</h4>
+          </div>
+          <div class="col mt-1">
+            <i class="bi bi-x-circle-fill text-danger fs-5 float-end" id="close"></i>
+            <i class="bi bi-save-fill text-success fs-5 float-end me-3" id="save"></i>
+          </div>
+          <hr>
+        </div>
+
+        <!-- Declaring form field -->
+        <form class="border border-2 p-3 " id="form">
+          <fieldset>
+            <!-- <legend class="fs-5">BILL- DETAILS</legend> -->
+            <div class="row">
+              <div class="col">
+                <label class="mb-1 fw-semibold">PATIENT ID</label><br>
+                <input class=" border-0 border-bottom border-2" type="number" id="pname">
+              </div>
+              <div class="col">
+                <label class="mb-1 fw-semibold">FIRST NAME</label><br>
+                <input class=" border-0 border-bottom border-2" type="text" id="fname">
+              </div>
+              <div class="col">
+                <label class="mb-1 fw-semibold">LAST NAME</label><br>
+                <input class=" border-0 border-bottom border-2" type="text" id="lname">
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col">
+                <label class="mb-1 fw-semibold">BILL NUMBER</label><br>
+                <input class=" border-0 border-bottom border-2" type="nummber" id="billnumber">
+              </div>
+              <div class="col">
+                <label class="mb-1 fw-semibold">DOCTOR FEES</label><br>
+                <input class=" border-0 border-bottom border-2" type="number" id="doctorfees" onkeyup="onlive()">
+              </div>
+              <div class="col">
+                <label class="mb-1 fw-semibold">PHARMACY BILL</label><br>
+                <input class=" border-0 border-bottom border-2" type="number" id="pharmacybill" onkeyup="onlive()">
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col">
+                <label class="mb-1 fw-semibold">GST %</label><br>
+                <input class=" border-0 border-bottom border-2 bg-white" type="number" id="gsts" disabled>
+              </div>
+              <div class="col">
+                <label class="mb-1 fw-semibold">TOTAL BILL AMOUNT</label><br>
+                <input class=" border-0 border-bottom border-2 bg-white" type="number" id="totalbillamount" disabled>
+              </div>
+              <div class="col">
+                <label class="mb-1 fw-semibold">TOTAL BILL ROUNDOFF</label><br>
+                <input class=" border-0 border-bottom border-2 bg-white" type="number" id="roundoff" disabled>
+              </div>
+            </div>
+            <div class="row mt-5">
+              <div class=" col">
+                <p class="float-start me-2">If discount any enter value: Total savings </p><input type="text" id="diss0"
+                  class="bg-white border-0" disabled></input>
+              </div>
+              <div class="col">
+                <button type="button" class="btn btn-primary w-25 border-0 me-2" id="clickadd"
+                  style="background-color: rgb(51, 115, 175);">ADD</button>
+                <button type="button" class="btn btn-light w-25 " id="reset">RESET</button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+
+        <!-- Declaring table -->
+        <div class="row mt-3 ms-1 me-1">
+          <div class="overflow" style="height: 460px;">
+            <table id="display1">
+              <tr>
+                <th>PATIENT IDENTITY</th>
+                <th>DOCTOR NAME</th>
+                <th>PATIENT ID- PATIENT FIRST AND LAST NAME</th>
+                <th>DOCTOR FEES</th>
+                <th>PHARMACY BILL</th>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="container-fluid shadow-lg" style="height: 880px;" id="parent">
+        <div class="row bg-secondary">
+          <div class="col">
+            <h5 class="text-white mt-1">TOKEN BILL DETAILS</h3>
+          </div>
+          <div class="col">
+            <i class="bi bi-fast-forward-fill text-white float-end fs-4"></i>
+          </div>
+        </div>
+        <div class="row">
+          <div class="overflow" id="listparent" style="height: 850px;">
+            <div class="col" id="list"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="shadow-lg">
+      <div class="footer-copyright text-center p-2 bg-white"><b>© 2022 Copyright:</b>
+        <img src="iqvia.png" height="25" width="150">
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="grt-responsive-menu.js"></script>
+    <script>
+
+      //Welcome-Alert
+      swal({ title: "Welcome to IQVIA Dashboard", text: "IQVIA is a global leader in protecting individual patient privacy. The company uses a wide variety of privacy-enhancing technologies and safeguards to protect individual privacy while generating and analyzing information on a scale that helps healthcare stakeholders identify disease patterns and correlate with the precise treatment path and therapy needed for better outcomes.", icon: "info", });
+
+      //Declaring variables
+      var addicon = document.getElementById("clickadd");
+
+      //On-Keyup-Event
+      function onlive() {
+        try {
+          var Doctorfee = parseFloat(document.getElementById("doctorfees").value);
+          var Pharmacy = parseFloat(document.getElementById("pharmacybill").value);
+          var Gst = document.getElementById("gsts").value = '5';
+
+          //Total Bill Calculation
+          var totalamount = Doctorfee + Pharmacy; // Calculation for Doctorfee and Pharmacy   
+          var gstcal = 5 / 100 * totalamount;   // Calculation 5% for gst of total amount
+          var totalcal = gstcal + totalamount;  // Calculation for total bill = Total amount + Gst
+          var fixedvalue = totalcal.toFixed(4); //Fixed the number after decimal
+          var Totalbill = document.getElementById("totalbillamount").value = fixedvalue;
+
+          //Round-off Total Bill and display in input 
+          var roundoff = Math.round(totalcal) //Method for roundoff
+          console.log(roundoff + 'Roundoff')
+          document.getElementById("roundoff").value = roundoff;
+
+          //Print-the value in discount
+          var discountvalue = fixedvalue - roundoff;
+          var final = discountvalue.toFixed(3);
+          if (final < 0) //if Final value is less 0
+          {
+            document.getElementById("diss0").value = "No Discount";
+          }
+          else {
+            document.getElementById("diss0").value = final;
+          }
+        }
+        catch (ex) {
+          console.log("Error" + ex);
+        }
+      }
+
+      //Adding- Event in Add button
+      addicon.addEventListener('click', function add() {
+        try {
+          //Declaring Array 
+          const information = [];
+
+          //Geeting the value for all Input-Box
+          var patient = document.getElementById("pname").value;
+          var firstname = document.getElementById("fname").value;
+          var lastname = document.getElementById("lname").value;
+          var fullname = firstname + " " + lastname;
+          var billnumber = document.getElementById("billnumber").value;
+          var doctorfee = document.getElementById("doctorfees").value;
+          var pharmacy = document.getElementById("pharmacybill").value;
+          var totalbill = document.getElementById("totalbillamount").value;
+          var totalroundoff = parseFloat(document.getElementById("roundoff").value);
+          var attach = document.getElementById("list");
+
+          //if input box does not conatin any values : validation of all input box 
+          if (patient === "") {
+            swal({ text: 'Hello ,Please Enter Patient ID', icon: "warning", });
+          }
+          else if (firstname === "") {
+            swal({ text: 'Hello ,Please Enter First Name', icon: "warning", });
+          }
+          else if (lastname === "") {
+            swal({ text: 'Hello ,Please Enter Last Name', icon: "warning", });
+          }
+          else if (billnumber === "") {
+            swal({ text: 'Hello ,Please Enter Bill Number', icon: "warning", });
+          }
+          else if (doctorfee === "") {
+            swal({ text: 'Hello ,Please Enter Doctor Fee', icon: "warning", });
+          }
+          else if (pharmacy === "") {
+            swal({ text: 'Hello ,Please Enter Pharmacy Amount', icon: "warning", });
+          }
+          else {
+
+            var doctorfee = parseFloat(document.getElementById("doctorfees").value); //Method for getting values for doctor fee
+            var pharmacy = parseFloat(document.getElementById("pharmacybill").value); //Method for getting values for pharmacy
+
+            //Addition Doctor fee and pharmacy
+            var addition = doctorfee + pharmacy
+            addition.toFixed(4);
+            console.log(addition);
+
+            //Gst- Display 5% 
+            var gst = document.getElementById("gsts").value = "5";
+            var gstcal = (gst / 100) * addition
+            var finalbill = gstcal + addition
+            var fixed = finalbill.toFixed(2)
+            console.log(fixed + "total value after gst");
+
+            //Round-Off Total Bill Amount
+            var round = Math.round(finalbill);
+            console.log(round);
+            var totalroundoff = document.getElementById("roundoff").value = round;
+
+            //Pushing value in array 
+            information.push(patient); //Patient-ID
+            information.push(fullname); //Fullname
+            information.push(billnumber); //Bill Number
+            information.push(doctorfee); //Doctor Fee
+            information.push(pharmacy); //Pharmacy
+            information.push(fixed); // Total-bill-Amount
+            information.push(round);  // Total-bill-Amount-Roundoff
+
+            //Display Array-Element 
+            console.log(information);
+
+            //Creating-Table-Information
+            var row = 1;
+            var display = document.getElementById("display1");
+            var newRow = display.insertRow(row); //Method for inserting row in table
+
+            //Creating cells in table
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+            var cell4 = newRow.insertCell(3);
+            var cell5 = newRow.insertCell(4);
+
+            //Providing values for cell as per array
+            cell1.innerHTML = information[2];
+            cell2.innerHTML = "Dr. Alok Pandey MBBS";
+            cell3.innerHTML = information[0] + "-" + " " + information[1];
+            cell4.innerHTML = information[3];
+            cell5.innerHTML = information[4];
+            row++;
+
+            //Creating-new-element ol
+            var newElement = document.createElement("ol");
+            newElement.classList.add("mt-2");
+            attach.appendChild(newElement);
+
+            //Creating-new-element li for bill number
+            var newbill = document.createElement("li");
+            newbill.innerHTML = " " + "Bill Number :" + " " + information[2];
+            newElement.appendChild(newbill);
+
+            //Creating-new-element ol
+            var ol = document.createElement("ol");
+            newbill.appendChild(ol);
+
+            //Creating -new-element-li under ol for patient Id
+            var newli = document.createElement("li");
+            newli.innerHTML = " " + "Patient ID :" + " " + information[0];
+            ol.appendChild(newli);
+
+            //Creating-new-element-li for patient name
+            var newpatient = document.createElement("li");
+            newpatient.innerHTML = "Patient Name :" + " " + information[1];
+            ol.appendChild(newpatient);
+
+            //Creating-New-Element li for total bill amount
+            var newbill = document.createElement("li");
+            newbill.innerHTML = " " + "Total Bill Amount" + " " + ":" + " " + fixed + " " + "Rs";
+            ol.appendChild(newbill);
+
+            //Creating-New-Element li for total bill amount roundoff
+            var newroundoff = document.createElement("li");
+            newroundoff.innerHTML = " " + "Total Bill Amount Roundoff" + " " + ":" + " " + totalroundoff + " " + "Rs";
+            ol.appendChild(newroundoff);
+
+            //Swal-Alert-Event 
+            // swal("Application Completed", " Inported Successfully")
+            swal({ title: "Application Completed ", text: " Imported Successfully", icon: "success", button: "DONE", });
+
+          }
+        }
+        catch (ex) {
+          console.log("Error in add function" + ex);
+        }
+      })
+
+      //Close-event 
+      var close = document.getElementById("close");
+
+      close.addEventListener('click', function () {
+        var target = document.getElementById("container");
+        var oldelement = target.children[0];
+        var oldlist = target.children[1];
+        console.log(oldelement);
+
+        target.removeChild(oldelement);
+        // target.removeChild(oldlist); 
+      })
+
+      //Retest-Event 
+      var retest = document.getElementById("reset");
+
+      retest.addEventListener('click', function () {
+        swal({ title: "Application Reset !", text: "Successfully", icon: "success", button: "Okay", });
+        console.log("reset")
+        var patient = document.getElementById("pname").value = " ";
+        var firstname = document.getElementById("fname").value = " ";
+        var lastname = document.getElementById("lname").value = " ";
+        var billnumber = document.getElementById("billnumber").value = " ";
+        var doctorfee = document.getElementById("doctorfees").value = " ";
+        var pharmacy = document.getElementById("pharmacybill").value = " ";
+        var gst = document.getElementById("gsts").value = " ";
+        var totalroundoff = document.getElementById("roundoff").value = " ";
+        var totalbill = document.getElementById("totalbillamount").value = " ";
+        var discountinput = document.getElementById("diss").value = " ";
+      })
+
+      //Adding-event to exit
+      var exit = document.getElementById("exit");
+
+      //Adding-Event to Exit
+      exit.addEventListener('click', function () {
+        swal({ title: "Are you sure you want to Exit ?", text: "Please Save your work", icon: "warning", buttons: true, dangerMode: true, })
+          .then((yes) => {
+            if (yes) {
+              window.open("file:///C:/Users/u1136557/OneDrive%20-%20IQVIA/Desktop/JAVASCRIPT/WELCOME-PAGE-JAVASCRIPT.html", "_parent");
+            }
+            else {
+              preventDefault();
+            }
+          });
+      })
+
+      //Adding event in Heading
+      var heading = document.getElementById("heading");
+
+      heading.addEventListener('click', function () {
+        swal({ title: "Welcome to IQVIA Dashboard", text: "IQVIA is a global leader in protecting individual patient privacy. The company uses a wide variety of privacy-enhancing technologies and safeguards to protect individual privacy while generating and analyzing information on a scale that helps healthcare stakeholders identify disease patterns and correlate with the precise treatment path and therapy needed for better outcomes.", icon: "info", });
+      })
+
+      //Adding Save event in icon 
+      var save = document.getElementById('save');
+
+      //Adding event in save 
+      save.addEventListener('click', function () {
+        swal({ title: "Application Saved ", text: "Successfully", icon: "success", button: "Okay", });
+      })
+
+    </script>
+</body>
+
+</html>
