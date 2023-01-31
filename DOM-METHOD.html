@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+
+<body>
+  <h1>
+    DOM-METHOD PRACTICE
+  </h1>
+  <div id="test">
+    <p>The oldest classical British and Latin writing had little or no space between words and could be written in
+      boustrophedon (alternating directions).
+      Over time, text direction (left to right) became standardized, and word dividers and terminal punctuation became
+      common.
+      The first way to divide sentences into groups was the original paragraphs, similar to an underscore at the
+      beginning of the new group.
+      [2] The Greek parágraphos evolved into the pilcrow (¶), which in English manuscripts in the Middle Ages can be
+      seen inserted inline between sentences.
+      The hedera leaf has also been used in the same way.
+    </p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+  <script>
+    //CreateElemnt
+    var newElement = document.createElement("h2");
+    console.log(newElement)
+
+    //CreateTextNode
+    var newText = document.createTextNode("This is Just Practice")
+    console.log(newText)
+
+    //DOM Append Method - AppendChild and InsertBefore
+
+    // newElement.appendChild(newText)
+    // console.log(newElement)
+
+    var heading = document.createElement("h3")
+    console.log(heading)
+
+    var textheading = document.createTextNode("Hello, I am Piyush Pandit")
+    console.log(textheading)
+
+    heading.appendChild(textheading)
+    console.log(heading)
+
+    // document.getElementById("test").appendChild(heading)
+
+    //InsertBefore The paragraph
+    var target = document.getElementById("test")
+    target.insertBefore(heading, target.children[0])
+
+  </script>
+</body>
+
+</html>
