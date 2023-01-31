@@ -1,0 +1,743 @@
+------------------------------------------------            
+            JAVASCRIPT REVISION
+------------------------------------------------
+Attribute
+
+docoument.getElementById("header").getAttribute("class") => Display only class name
+docoument.getElementById("header").getAttributeNode("class") => Display class name and content
+------------------------------------------------
+New DOM targetting Method 
+
+docoument.querySelector('#header) - query Selector
+docoument.querySelector('.header) - query Selector
+------------------------------------------------
+DOM CSS Styling Method 
+
+docoument.getElementById("header").style.backgroundColor="tan"
+docoument.querySelector('#header).style.backgroundColor="tan"
+
+docoument.getElementById("header").Classlist
+docoument.getElementById("header").Classlist.add("classname");
+docoument.getElementById("header").Classlist.Remove("classname");
+------------------------------------------------
+DOM Traversal Method
+
+docoument.getElementById("inner").parentelement
+docoument.getElementById("inner").parentNode
+
+Children and ChildNode
+
+docoument.getElementById("outer").Children => will return all child tags
+docoument.getElementById("outer").ChildNode => will return all child tags with space
+
+First Child , FirstElementChild
+docoument.getElementById("inner").FirstElementChild => returns first child of inner
+
+NextElemntSibling , NextSibling , PreviousElement Sibling and Previous Sibling
+docoument.getElementById("Child-c").NextElemntSibling;
+docoument.getElementById("Child-c").PreviousElemntSibling;
+------------------------------------------------
+DOM Create Method
+1. Create Element
+2. Create TextNode
+
+docoument.CreateElement("h2) => Element
+docoument.CreateTextNode("This is just tag")
+------------------------------------------------
+DOM Append Method 
+
+var new = docoument.CreateElement("h2) => Element
+var text = docoument.CreateTextNode("This is just tag")
+
+new.AppendChild("text");
+------------------------------------------------
+DOM InsertAdjacentHTML Method
+var target = docoument.getElementById("test);
+var newelement = "<h2>This is heading </h2>"
+
+target.InsertAdjacentHTML(newelement);
+------------------------------------------------
+Replace Child and Remove Child
+
+var new = docoument.CreateElement("li")
+var text = docoument.CreateTextNode("wow")
+
+new.AppendChild(text)
+
+var target = docoument.getElementById("list")
+var old = target.Children[0]
+target.ReplaceChild(old);
+target.RemoveChild(old);
+------------------------------------------------
+Form Event
+
+1.Keydown
+2.Keypress
+3.Keyup
+4.Focus
+5.Blur
+6.Input
+7.Change
+8.Selector 
+9.Submit 
+10.Invalid
+
+------------------------------------------------
+             JQUERY REVISION
+------------------------------------------------
+Method to start JQuery
+
+1. $('docoument).ready(function()
+   {
+   })
+
+2. $(function()
+   {
+   })
+------------------------------------------------
+Advance Selector
+
+$('*') => all HTML tags
+$("ul li") => Parent and Child 
+$(".abc, .xyz) => Multiple class 
+$("#abc, #xyz) => Multiple Id 
+$("h1, div, p") => Multiple tags
+$("p:first")
+$("p:last")
+$("li:even")
+$("p:odd")
+$("td:nth child()")
+------------------------------------------------
+Mouse Event
+
+1.click()
+2.dbclick()
+3.contextmenu() => Right click
+4.mouseenter()
+5.mouseleave()
+------------------------------------------------
+Keyboard Event
+
+1.Keypress()
+2.Keydown()
+3.Keyup()
+------------------------------------------------
+Form Event
+
+1.Focus()
+2.Blur()
+3.Change()
+4.Select()
+5.Submit()
+------------------------------------------------
+CSS style
+
+$('#test1').css('background','tan');
+$('#test1 ').html()
+------------------------------------------------
+Add Class , Remove Class and Toggle Class
+
+$('#test1').attr('class');
+$('#test').addClass('bg-success');
+$('#test').removeClass('bg-success');
+$('#test').toggleClass('bg-success');
+------------------------------------------------
+ON Method
+
+ $('#test1').on(
+{
+   "click" : function()
+   {
+      $(this).css('background','green');
+         console.log('Click event is working');
+       },
+       "mouseenter" : function()  
+         {
+            $(this).css('background','red');
+            console.log('mouse event is working');                        
+         },
+         "mouseleave" : function()
+         {
+            $(this).css('background','tan');
+               console.log('mouseleave event is working');                        
+          }
+    }
+------------------------------------------------
+JQuery DOM Traversal Method
+
+$('#child-C').parent();
+var b = $('#child-C').parents(); => show all the parents of child-c
+
+$('#inner').children('#child-C');
+$('#child-D').siblings();
+$('#child-C').next();
+$('#child-C').prev();
+$('#child-C').prevAll();
+$('#child-A').nextAll();
+------------------------------------------------
+JQUERY Append and prepand Method
+
+            //Method to append child in conatiner
+            $('#append').click(function()
+            {
+                $('#test1').append('<h2>A appended Child</h2>');
+                $('#orderlist').append('<li>A appended Child</li>');
+                console.log('Append Method is working');
+            })
+
+            //Method to prepand child in conatiner
+            $('#prepand').click(function()
+            {
+                $('#test1').prepend('<h2>A prepand Child</h2>');
+                $('#orderlist').prepend('<li>A prepended Child</li>');
+                console.log('Prepand Method is working');
+            })
+------------------------------------------------
+JQUERY Remove and Empty Method
+
+            //Method Empty in conatiner
+            $('#empty').click(function()
+            {
+                $('#test1 p').empty()
+                console.log('Empty Method is working');
+            })
+
+            //Method to Remove in conatiner
+            $('#remove').click(function()
+            {
+                $('#test1 h2').remove();
+                console.log('Remove Method is working');
+            })
+------------------------------------------------
+JQUERY Before and After Method
+
+            //Method Before child in conatiner
+            $('#before').click(function()
+            {
+                $('#test1').before('<h2>A prepand Child</h2>');
+                $('#orderlist').before('<li>A prepended Child</li>');
+                console.log('Before Method is working');
+            })
+
+            //Method to after child in conatiner
+            $('#after').click(function()
+            {
+                $('#test1').after('<h2>A appended Child</h2>');
+                $('#orderlist').after('<li>A appended Child</li>');
+                console.log('After Method is working');
+            })
+------------------------------------------------
+JQUERY wrap and unwrap Method
+
+            $('#wrapbutton').click(function()
+            {
+                //Wrap-Method 
+                $('#test1 h2').wrap('<div id="heading"></div>');
+                console.log('Wrap method is working');
+            })
+
+            //Unwrap-Method
+            $('#unwrap').click(function()
+            {
+                $('#test1 h2').unwrap();
+                console.log('UnWrap method is working');
+            })
+------------------------------------------------
+JQUERY Position and Offset Method
+
+            $('#position').click(function()
+            {
+                //Position-Method
+                var position = $('#test1').position();
+                console.log("top: "+ position.top+" "+"Left: "+ position.left);
+
+                //For h2
+                var heading =$('#test1 h2').position();
+                console.log(heading);
+            })
+
+            $('#offset').click(function()
+            {
+                //Offset-Method
+                var offset = $('#test1').offset();
+                console.log(offset);
+
+                //For h2
+                var heading =$('#test1 h2').offset();
+                console.log(heading);
+
+                //Set offset value as per need - gives real position
+                $('#test1').offset(
+                    {
+                        top:100,
+                        left:90
+                    }
+                )
+            })
+------------------------------------------------
+JQUERY Hide and Show Method
+
+            $('#hide').click(function()
+            {
+                //Hide-Method
+                $('#test1 h2').hide(2000,function()
+                {
+                    console.log('Hidden is working');
+                });
+            })
+
+            $('#show').click(function()
+            {
+                //Show-Method 
+                $('#test1 h2').show(2000,function()
+                {
+                    console.log('Show method is working');
+                });
+            })
+------------------------------------------------
+JQUERY Slide Methods
+
+            //Slide-up Method
+            $('#slideup').click(function()
+            {
+                $('#test1').slideUp(2000);
+            })
+
+            //Slide-Down Method
+            $('#slidedown').click(function()
+            {
+                $('#test1').slideDown(2000);
+            })
+
+            //Slide-Toggle Method
+            $('#toggle').click(function()
+            {
+                $('#test1').slideToggle(2000)
+            })
+------------------------------------------------
+             ADVANCE JAVASCRIPT REVISION
+------------------------------------------------
+Let and Const variables
+
+        //Declaring variable 
+        var x = "Hello";
+        var x = "Yahoo Baba"; //Reasigning variable x
+        console.log("variable = "+x);
+
+        //Declaring let 
+        let a = "Hello";
+        // let a ="Yahoo baba"; //Cannot Re-Declare but can asign values 
+        a = "Yahoo baba";
+        console.log("Let = "+a);
+
+        //Declaring Const 
+        const y = "Hello" //Cannot Resign and no Re-declare
+        console.log("Const = "+y)
+------------------------------------------------
+Template String 
+
+        //Without using Template Literals
+        let user = "Yahoo Baba";
+        document.write("Hello "+user +" Welcome to 2022 <br> <br>")
+
+        //Using Template Literals
+        let string = "Yahoo Baba";
+        let marks = 27;
+        var hello = `Hello "${user}" Welcome to 2022 , your marks is '${marks}'`
+        document.write(hello)
+
+        //Template string in function
+        function name(string,marks)
+        {
+            return `${string} ${marks}`
+        }
+        document.write(name("<br> piyush",89))
+------------------------------------------------
+Arrow Function 
+
+      //old style
+      function hello()
+      {
+        console.log("Hello Function")
+      }
+        //Old style
+        welcome = function()
+        {
+          console.log("Hello I am Normal Function");
+        }
+        welcome();
+
+        //With Arrow Function
+        let message = () => console.log("Hello I am Arrow Function");
+        message();
+
+        //Checking the type of message 
+        console.log(typeof(message));
+------------------------------------------------
+Rest Operator
+
+        //Creatin normal function
+        function sum(num1 ,num2)
+        {
+          console.log(num1+num2);
+        }
+        sum(1,2)
+
+        //With Arguments 
+        function SumArg()
+        {
+            console.log(arguments);//Printing only parameter values
+
+            let sum = 0;
+
+            for(let i in arguments)
+            {
+              sum = sum + arguments[i]
+            }
+            console.log(sum)
+        }
+        SumArg(5,5,5);
+
+        function SumRest(name, ...args)
+        {
+            console.log(name);
+            console.log("Total Arguments "+ name+ " "+ args);//Printing only parameter values
+
+         let sum = 0;
+         for(let i in args)
+         {
+            sum = sum + args[i]
+         }
+          console.log(name+" "+ sum)
+        }
+
+        SumRest("Piyush",5,5,5,5)
+------------------------------------------------
+Spread Operator
+
+        function SumRest(name, ...args)
+        {
+            console.log(name);
+            console.log("Total Arguments "+ name+ " "+ args);//Printing only parameter values
+            console.log(arguments)
+
+         let sum = 0;
+         for(let i in args)
+         {
+            sum = sum + args[i]
+         }
+          console.log(name+" "+ sum)
+        }
+
+        var arr = [10,20,30]
+        SumRest("Yahoo Baba", arr)
+
+        //With Spread Operator just place three dots in function calling
+        SumRest("Yahoo Baba", ...arr)
+
+        var array = [10,20,30,40,50];
+        //using spread operators
+        console.log(...array);
+        console.log([...array]);
+
+        //Array concatation
+        var arr3 = arr.concat(array);
+        console.log("After concatation : " + arr3)
+
+        //Array Concatation with spread operators
+        var arr4 = [...arr,...array];
+        console.log("After concatation : " + arr4)
+
+        //Spread operators with object 
+        var obj1 = {
+            name : "Yahoo Baba",
+            place:"Chennai"
+        };
+
+        var obj2 = {
+            name : "Piyush Pandit",
+            place:"Raipur"
+        }; 
+
+        var obj3 = { ...obj1, ...obj2};
+
+        // console.log("After concatation of object : "+ obj3)
+        console.log(obj3)
+------------------------------------------------
+Object Literals
+
+        //Old Style to declare object
+        var name = "Yahoo Baba";
+        var course = "BTech";
+
+        var obj1 = 
+        {
+            name : name,
+            course : course
+        };
+        console.log(obj1);
+
+        //With Object Literals
+        var obj2 =
+        {
+            name,
+            course
+        };
+
+        console.log(obj2) //Printing object literals
+
+        //Use variable as a property name 
+        let n = "student";
+        let p = "Place";
+
+        let obj3 =
+        {
+            [n] : "Yahoo Baba",
+            [n +" Name"]:"Piyush",
+            [p]:"Chennai"
+        };
+
+        console.log("variable as a property name "+obj3);
+        console.log(obj3);
+
+        //New function Syntax 
+        obj4 = 
+        {
+            name : "Yahoo Baba",
+            show()
+            {
+                return `${this.name} Name of Student `;
+            }
+        };
+
+        console.log(obj4)
+        console.log(obj4.show()); //Object function calling 
+------------------------------------------------
+Destructing Array 
+
+        //Declareing Array - Old style 
+        let user  = ["Yahoo Baba",25,"Delhi"];
+
+        let name = user[0];
+        let age = user[1];
+        let city = user [2];
+        console.log(name+" "+ age+" "+ city);
+
+        //Using Destructing Array 
+        let user1 = ["Piyush pandit" ,24,"Raipur"];
+
+        let [name1 , age1, city1] = user1;
+        console.log(name1);
+        console.log(age1);
+        console.log(city1);
+
+        //Using Rest operators
+        let [name2 , ...args] = user1
+        console.log(user1)
+------------------------------------------------
+Destructing Object 
+
+        //Creating object 
+        var user =
+        {
+            name:"Yahoo Baba",
+            age:25,
+            city:"Delhi"
+        };
+
+        let {name , age , city} = user
+        console.log(name);
+        console.log(age);
+        console.log(city);
+
+        console.log("With alais name : ")
+        //Alais name 
+        let {name: n , age :a , city:c} = user
+        console.log(n);
+        console.log(a);
+        console.log(c);
+    </script>
+------------------------------------------------
+OOPs in Javascript
+
+        //Creating Class
+        class hello
+        {
+            //Creating Method 
+            message() //No Function Keyword
+            {
+                console.log("Hello I am Class Hello Message Method")
+            }
+
+            //Creating Method 
+            text()
+            {
+                console.log("Hello I am Class Hello text Method")
+            }
+        }
+
+        //Creating class object
+        var a = new hello()
+        a.message(); //Class Methods
+        a.text();
+
+        //Types of Method 
+        class student
+        {
+            //Creating Constructor
+            constructor(_name,_age)
+            {
+                //Declare variable 
+                this.name = _name ;
+                this.age = _age
+                console.log("Constructor Function")
+            }
+
+            //Creating Method 
+            hello()
+            {
+                console.log("Hello your name is : "+ this.name+" "+ "and age :"+ this.age);
+            }
+
+            //Declaring static function
+            static staticMethod()
+            {
+                console.log("Hello I am Static function");
+            }
+        }
+
+        var b = new student("Piyush Pandit",23);
+        b.hello();
+
+        //Calling Static Method
+        student.staticMethod();
+------------------------------------------------
+Inheritance in Javascript
+
+        //Creating class
+        class employee
+        {
+            constructor(name,age,salary)
+            {
+                this.empname = name;
+                this.empage = age;
+                this.empsalary = salary;
+                console.log("Hello I am Constructor of employee class ");
+            }
+
+            //Creating Method 
+            Info()
+            {
+                document.write(`<h4>Employee Class</h4> <br> Name : ${this.empname}<br>  Age : ${this.empage} <br> salary : ${this.empsalary}<br>`)
+            }
+        }
+
+        //Creating class
+        class manager extends employee //Inherits  Emloyee class
+        {
+
+        }
+        
+        let b = new manager('Piyush Pandit', 23, 40000);
+        b.Info();
+------------------------------------------------
+Promise 
+
+        function prom(complete)
+        {
+            return new Promise(function(resolve, reject)
+            {
+                if (complete)
+                {
+                    resolve("I am successfull");
+                }
+                else
+                {
+                    reject("I am failed");
+                }
+            })
+        }
+
+        let onfulfilment = function(result)
+        {
+            console.log(result);
+        }
+
+        let onrejection = function(error)
+        {
+            console.log(error);
+        }
+
+        console.log(prom(true));
+        console.log(prom(false));
+
+        prom(true).then(onfulfilment);
+        prom(false).catch(onrejection);
+------------------------------------------------
+Fetch Method in Javascript
+
+        //Creating Fetch Method for getting all the data 
+        fetch("https://jsonplaceholder.typicode.com/posts").then(function(responce)
+        {
+            return responce.json();//can be text or json need to mention
+        }).then(function(data)
+        {
+            //Print all the JSON - we can print using for each or for loop
+            $.each(data,function(key , value)
+            {
+                $('#test').append("<p>"+value.id +"</p> <br> <p>"+value.title+"</p>")
+            })
+        }).catch(function(error)
+        {
+            console.log("Error " + error)
+            $('#test').html("Error in the server "+ error);
+        })
+
+        var obj = {
+            'Name' : 'Piyush',
+            'Place':'raipur'
+        }
+        
+        //Creating Fetch method to Insert Data 
+        fetch('https://jsonplaceholder.typicode.com/posts',
+        {
+            method:"POST",
+            body:JSON.stringify(obj),
+            headers:{
+                'content-type':'application/json'
+            }
+        }).then(function(responce)
+        {
+            return responce.json()
+        }).then(function(data)
+        {
+            console
+------------------------------------------------
+ASYNC Function and Await
+
+    async function test()
+    {
+      return "Hello";
+    }
+
+    test().then(function(result)
+    {
+      console.log(result)
+    })
+    console.log(test())
+
+    async function test1()
+    {
+      console.log("2:Message");
+      var responce = await fetch("https://jsonplaceholder.typicode.com/posts");
+      console.log("3:Message");
+      var student = await responce.json();
+      
+      return student;
+    }
+
+    console.log("1:Message");
+    var a = test1();
+    console.log("4:Message");
+    console.log(a)
+------------------------------------------------
